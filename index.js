@@ -1,20 +1,13 @@
-let text = 'Hello ';
-text = text + 'Kaspar!';
-console.log(text);
-text = 'asdasd';
-text = "asdadsasd";
-text = "Don't use double quotes unless needed";
-text = 'Don\'t use double\t quotes\n unless needed';
-console.log(text);
-let name = 'Kaspar';
-let age = 32;
-let sexuality = 'bi';
-text = 'Your name is ' + name + ' and you are ' + age + ' years old and your sexuality is ' + sexuality + '!';
-console.log(text);
-text = `Your name is ${name} 
-and you are ${age} years old 
-and your sexuality is ${sexuality}!`;
-console.log(text);
-console.log(text.toUpperCase());
-text = text.toUpperCase();
+let array = [1, 2, 3, 'asdas', true, [1, 2, 3]];
+console.log(array);
+console.log(array[2]);
+console.log(array[5][1]);
+array[3] = 'Hello';
+console.log(array);
+console.log(array.length);
+array.push('new value');
+console.log(array);
+array.push(1, 3, 4, 'asdasd', 'asdasd');
+console.log(array);
+let text = array.join('☺');
 console.log(text);
