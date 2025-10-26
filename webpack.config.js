@@ -28,15 +28,24 @@ export default {
         test: /\.s[ac]ss$/i,
          use: [
             "style-loader",
-            "css-loader",
-            {
-                loader:'sass-loader',
-                options: {
-                    sassOptions: {
-                        quietDeps: true
-                    }
-                }
-            }
+          "css-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              sassOptions: {
+                quietDeps: true,
+              },
+            },
+          },
+        ],
+      },
+      {
+        test: /\.njk$/,
+        use: [
+          {
+            loader: "simple-nunjucks-loader",
+            options: {},
+          },
         ],
       },
     ],
@@ -45,7 +54,15 @@ export default {
   //Pluginid lõpus (Vähemtähtsad)
   plugins: [
     new HtmlWebpackPlugin({
-        template: './src/index.html'
-    })
+        template: "./src/views/index.njk",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "about.html",
+      template: "./src/views/about.njk",
+    }),
+    new HtmlWebpackPlugin({
+      filename: "contacts.html",
+      template: "./src/views/contacts.njk",
+    }),
 ],
 };
