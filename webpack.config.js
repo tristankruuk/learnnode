@@ -18,6 +18,19 @@ export default {
     port: 9000,
   },
 
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
+
   //Pluginid lõpus (Vähemtähtsad)
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin({
+        template: './src/index.html'
+    })
+],
 };
