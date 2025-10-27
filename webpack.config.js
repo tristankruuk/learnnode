@@ -7,7 +7,7 @@ let data = await response.json();
 console.log(data);
 
 //Ise tehtud lihtne plugin (peab lisama pluginite alla)
-//Uus plugin loob lehed karakteri nimega
+//Uus plugin loob lehed karakteri id järgi
 let pages = [];
 for(let character of data.results) {
   let page = new HtmlWebpackPlugin({
@@ -29,6 +29,7 @@ export default {
   output: {
     filename: 'main.js',
     path: path.resolve(import.meta.dirname, 'dist'),
+    clean: true,
   },
 
 
@@ -62,16 +63,7 @@ export default {
             },
           },
         ],
-      },
-      {
-        test: /\.njk$/,
-        use: [
-          {
-            loader: "simple-nunjucks-loader",
-            options: {},
-          },
-        ],
-      },
+      }
     ],
   },
 
@@ -80,19 +72,7 @@ export default {
   //Pluginid lõpus (Vähemtähtsad)
   plugins: [
     new HtmlWebpackPlugin({
-        template: "./src/views/index.njk",
-        templateParameters: {
-          characters: data.results
-        }
+        template: "./src/index.html",
     }),
-    new HtmlWebpackPlugin({
-      filename: "about.html",
-      template: "./src/views/about.njk",
-    }),
-    new HtmlWebpackPlugin({
-      filename: "contacts.html",
-      template: "./src/views/contacts.njk",
-    }),
-    ...pages //Spread syntax
-],
+  ],
 };
