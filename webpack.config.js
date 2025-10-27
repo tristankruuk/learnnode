@@ -1,13 +1,32 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
+
+//Ise tehtud lihtne plugin (peab lisama pluginite alla)
+let pages = [];
+for(let i = 1; i<10; i++) {
+  let page = new HtmlWebpackPlugin({
+      filename: `page${i}.html`,
+      template: "./src/views/page.njk",
+      templateParameters: {
+        page: i
+      }
+    });
+    pages.push(page);
+}
+
+
 export default {
+
+
   //Sisendid ja väljundid alguses
   entry: './src/index.js',
   output: {
     filename: 'main.js',
     path: path.resolve(import.meta.dirname, 'dist'),
   },
+
+
 
   //Server ka suhteliselt oluline
   devServer: {
@@ -51,6 +70,8 @@ export default {
     ],
   },
 
+
+
   //Pluginid lõpus (Vähemtähtsad)
   plugins: [
     new HtmlWebpackPlugin({
@@ -68,5 +89,6 @@ export default {
       filename: "contacts.html",
       template: "./src/views/contacts.njk",
     }),
+    ...pages //Spread syntax
 ],
 };
