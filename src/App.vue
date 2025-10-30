@@ -1,5 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue';
+import ItemList from './ItemList.vue';
 
 let newItem = ref('');
 let i = 1;
@@ -11,7 +12,9 @@ let items = ref([
 ]);
 let code = ref(404);
 function addItem(){
-    items.value.push({id: i++, name: newItem.value, isDone: false});
+    if(newItem.value.trim() !== '') {
+        items.value.push({id: i++, name: newItem.value.trim(), isDone: false});   
+    }
     newItem.value = '';
 }
 
@@ -29,7 +32,7 @@ let toDoItems = computed(() => {
     <div class="content">
         <div class="field has-addons">
             <div class="control is-expanded">
-                <input v-model="newItem" class="input" type="text" placeholder="Add item">
+                <input v-model="newItem" class="input" type="text" placeholder="Add item" @keydown.enter="addItem">
             </div>
             <div class="control">
                 <button class="button is-info" @click="addItem">
@@ -39,29 +42,9 @@ let toDoItems = computed(() => {
         </div>
         <h1>{{ newItem }}</h1>
 
-        <h1>All Items</h1>
-        <ul>
-            <li v-for="item in items" :key="item.id">
-                <input type="checkbox" v-model="item.isDone">
-                {{ item.name }}
-            </li>
-        </ul>
-
-        <h1>Done Items</h1>
-        <ul>
-            <li v-for="item in doneItems" :key="item.id">
-                <input type="checkbox" v-model="item.isDone">
-                {{ item.name }}
-            </li>
-        </ul>
-
-        <h1>ToDo Items</h1>
-        <ul>
-            <li v-for="item in toDoItems" :key="item.id">
-                <input type="checkbox" v-model="item.isDone">
-                {{ item.name }}
-            </li>
-        </ul>
+        <ItemList :items="items" title="All Items"></ItemList>
+        <ItemList :items="doneItems" title="Done Items"></ItemList>
+        <ItemList :items="toDoItems" title="ToDo Items"></ItemList>
 
         <input v-model="code" class="input" type="number" placeholder="Enter Error code">
         <img :src="'https://http.cat/' + code">
