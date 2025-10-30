@@ -1,5 +1,7 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { VueLoaderPlugin } from 'vue-loader';
+import webpack from "webpack";
 
 //Fetchib andmed API'st
 let response = await fetch('https://rickandmortyapi.com/api/character');
@@ -63,7 +65,11 @@ export default {
             },
           },
         ],
-      }
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
     ],
   },
 
@@ -74,5 +80,11 @@ export default {
     new HtmlWebpackPlugin({
         template: "./src/index.html",
     }),
+    new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: 'true',
+      __VUE_PROD_DEVTOOLS__: 'false',
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false',
+    })
   ],
 };
