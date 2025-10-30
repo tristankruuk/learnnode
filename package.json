@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "bulma": "^1.0.4",
     "surge": "^0.24.6",
     "webpack": "^5.102.0"
   },
