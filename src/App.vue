@@ -1,53 +1,19 @@
 <script setup>
-import { computed, ref } from 'vue';
-import ItemList from './ItemList.vue';
-
-let newItem = ref('');
-let i = 1;
-let items = ref([
-    {id: i++, name:'Leib', isDone: false},
-    {id: i++, name:'Sai', isDone: true},
-    {id: i++, name:'Õlu', isDone: false},
-    {id: i++, name:'Viin', isDone: true},
-]);
-let code = ref(404);
-function addItem(){
-    if(newItem.value.trim() !== '') {
-        items.value.push({id: i++, name: newItem.value.trim(), isDone: false});   
-    }
-    newItem.value = '';
-}
-
-let doneItems = computed(() => {
-    return items.value.filter(item => item.isDone);
-});
-
-let toDoItems = computed(() => {
-    return items.value.filter(item => !item.isDone);
-});
-
+    import { ref } from 'vue';
+    
+    let modalActive = ref(false);
 </script>
+
 <template>
-<div class="container">
-    <div class="content">
-        <div class="field has-addons">
-            <div class="control is-expanded">
-                <input v-model="newItem" class="input" type="text" placeholder="Add item" @keydown.enter="addItem">
-            </div>
-            <div class="control">
-                <button class="button is-info" @click="addItem">
-                    Add item
-                </button>
-            </div>
+    <button class="button is-primary" @click="modalActive=true">Open Modal</button>
+    <div class="modal" :class="{'is-active': modalActive}">
+        <div class="modal-background" @click="modalActive=false"></div>
+        <div class="modal-content">
+            <p class="image is-4by3">
+                <img src="https://bulma.io/assets/images/placeholders/1280x960.png" alt="">
+            </p>
         </div>
-        <h1>{{ newItem }}</h1>
-
-        <ItemList :items="items" title="All Items"></ItemList>
-        <ItemList :items="doneItems" title="Done Items"></ItemList>
-        <ItemList :items="toDoItems" title="ToDo Items"></ItemList>
-
-        <input v-model="code" class="input" type="number" placeholder="Enter Error code">
-        <img :src="'https://http.cat/' + code">
+        <button class="modal-close is-large" aria-label="close" @click="modalActive=false"></button>
     </div>
-</div>
+
 </template>
