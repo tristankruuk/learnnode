@@ -27,6 +27,10 @@ defineProps(['character']);
                             <th>Species</th>
                             <td>{{ character.species }}</td>
                         </tr>
+                        <tr>
+                            <th>Origin</th>
+                            <td>{{ character.origin.name }}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
