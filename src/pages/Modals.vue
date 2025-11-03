@@ -10,17 +10,15 @@ let modal3Active = ref(false);
 </script>
 
 <template>
-    <div class="container mt-3">
-        <button class="button is-primary mx-2" @click="modalActive = true">Open Modal</button>
-        <button class="button is-secondary mx-2" @click="modal2Active = true">Open Modal 2</button>
-        <button class="button is-secondary mx-2" @click="modal3Active = true">Open Modal 3</button>
-    </div>
+    <button class="button is-primary mx-2" @click="modalActive = true">Open Modal</button>
+    <button class="button is-secondary mx-2" @click="modal2Active = true">Open Modal 2</button>
+    <button class="button is-secondary mx-2" @click="modal3Active = true">Open Modal 3</button>
 
-    <ImgModal :active="modalActive" @close="modalActive=false"
-    url="https://picsum.photos/seed/tristan/1280/960"></ImgModal>
-    <ImgModal :active="modal2Active" @close="modal2Active=false"
-    url="https://picsum.photos/seed/kruuk/1280/960"></ImgModal>
-    <Modal :active="modal3Active" @close="modal3Active=false">
+    <ImgModal :active="modalActive" @close="modalActive = false" url="https://picsum.photos/seed/tristan/1280/960">
+    </ImgModal>
+    <ImgModal :active="modal2Active" @close="modal2Active = false" url="https://picsum.photos/seed/kruuk/1280/960">
+    </ImgModal>
+    <Modal :active="modal3Active" @close="modal3Active = false">
         <div class="card">
             <div class="card-image">
                 <figure class="image is-4by3">
@@ -50,5 +48,4 @@ let modal3Active = ref(false);
             </div>
         </div>
     </Modal>
-
 </template>
