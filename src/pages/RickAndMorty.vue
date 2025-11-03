@@ -21,38 +21,11 @@ async function getCharacters(page) {
         }
     });
     console.log(res);
-    characters.value = res.data.results;
+    characters.value.push(...res.data.results);
     info.value = res.data.info;
 }
 
 await getCharacters(currentPage.value);
-
-function generatePages(count, current) {
-    let pages = [];
-    for (let i = 1; i <= 3; i++) {
-        pages[i] = i;
-    }
-
-    if (current > 2) {
-        pages.push('...');
-    }
-
-    if (current > 2 && current < count - 1) {
-        for (let i = current - 2; i <= current + 2; i++) {
-            pages[i] = i;
-        }
-    }
-
-    if (current < count - 2) {
-        pages.push('...');
-    }
-
-    for (let i = count - 2; i <= count; i++) {
-        pages[i] = i;
-    }
-    return pages.filter(page => page);
-}
-console.log(generatePages(42, 10));
 
 let timeout;
 
@@ -63,6 +36,12 @@ async function getPage(page) {
         await getCharacters(currentPage.value);
     }, 1000);
 }
+
+document.addEventListener('scroll', function() {
+    if(window.innerHeight + window.scrollY > document.body.clientHeight - 100) {
+        getPage(currentPage.value + 1);
+    }
+});
 </script>
 <template>
      <div class="field has-addons">
@@ -75,26 +54,6 @@ async function getPage(page) {
             </button>
         </div>
     </div>
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <button class="pagination-previous" :disabled="!info.prev" @click="getPage(currentPage - 1)">Previous</button>
-        <button class="pagination-next" :disabled="!info.next" @click="getPage(currentPage + 1)">Next page</button>
-        <ul class="pagination-list">
-
-            <li v-for="page in generatePages(info.pages, currentPage)">
-                <a v-if="page === currentPage" class="pagination-link is-current" aria-label="Page 46"
-                    aria-current="page">
-                    {{ page }}
-                </a>
-                <a v-else-if="page !== '...'" href="#" class="pagination-link" @click="getPage(page)"
-                    aria-label="Goto page 1">
-                    {{ page }}
-                </a>
-                <span v-else class="pagination-ellipsis">
-                    &hellip;
-                </span>
-            </li>
-        </ul>
-    </nav>
     <div class="columns is-multiline">
         <div class="column is-3" v-for="character in characters">
             <CharacterCard :character="character"></CharacterCard>
