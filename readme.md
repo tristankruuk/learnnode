@@ -1,3 +1,17 @@
+*function buyCursor(){*
+*    setInterval(() => {*
+
+*    }, 1000)*
+*}*
+
+-> Peale intervali kasutamist tuleb kaks osa: funktsioon & intervali pikkus millisekundites
+-> Kuna funktsiooni kasutades luuakse igakord uus interval, siis on mõistlik interval eraldi teha. Näiteks cps kaudu (clicks per second)
+
+parseFloat(cookies.toFixed(1))
+
+-> .toFixed muudab numbri kuju kindlaks (nt kuni kümnendmurdudeni)
+-> parseFloat võtab komakohad ära, kui need on nulliväärsed
+
 **-------------------------------------------------------------------------------------**
 
 **VUE**
@@ -5,6 +19,7 @@
 
 *<script template>JavaScript</script>*
 *<template>HTML</template>*
+*<style>css</style>*
 
 -> Põhimõtteliselt HTML ja JavaScript samas failis, kus saab HTML'i lisada {{ muutuja }} kujul JavaScripti.
 -> Vue failide vahel saab suhelda JS'iga > import x from y
