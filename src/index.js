@@ -18,6 +18,7 @@ import RickAndMorty from "./pages/RickAndMorty.vue"
 import CookieClicker from "./pages/CookieClicker.vue";
 import CanvasExample from "./pages/CanvasExample.vue";
 import LeafletMap from "./pages/LeafletMap.vue";
+import WebApis from "./pages/WebApis.vue";
 
 const routes = [
   { path: "/", component: ToDo, name: "To-Do" },
@@ -27,6 +28,7 @@ const routes = [
   { path: "/cookieclicker", component: CookieClicker, name: "Cookie Cliker", meta: {noContainer: true} },
   { path: "/canvas", component: CanvasExample, name: "Canvas", meta: {noContainer: true} },
   { path: "/leaflet", component: LeafletMap, name: "Leaflet", meta: {noContainer: true} },
+  { path: "/webapis", component: WebApis, name: "WebAPIs"},
 ];
 
 const router = createRouter({
