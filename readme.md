@@ -1,3 +1,39 @@
+**WebSocket**
+
+```
+import { WebSocketServer } from 'ws';
+
+const wss = new WebSocketServer({ port: 8080 });
+```
+
+-> Uus muutumatu, mis loob serveri
+-> Seadistus portile (seal asub web server)
+
+```
+wss.on('connection', function connection(ws) {
+  ws.on('error', console.error);
+```
+
+  -> wss.on registreerib, kui klient 'connection' ühendab
+  -> kui klient on ühendatud, siis jooksutab funktsiooni
+  -> kui tuleb error, siis konsoolitakse viga
+
+```
+  ws.on('message', function message(data) {
+    console.log('received: %s', data);
+  });
+```
+
+  -> kui "klient" saadab sõnumi, siis jooksutab funktsiooni
+  -> funktsioon konsoolib sõnumi info (data)
+  -> recieved: %s > sõnum topitakse %s koha peale
+
+```
+  ws.send('something');
+});
+```
+#
+
 *function buyCursor(){*
 *    setInterval(() => {*
 
@@ -12,7 +48,7 @@ parseFloat(cookies.toFixed(1))
 -> .toFixed muudab numbri kuju kindlaks (nt kuni kümnendmurdudeni)
 -> parseFloat võtab komakohad ära, kui need on nulliväärsed
 
-**-------------------------------------------------------------------------------------**
+---
 
 **VUE**
 *Ülesehitus:*

@@ -5,12 +5,14 @@
     "leaflet": "^1.9.4",
     "surge": "^0.24.6",
     "vue-router": "^4.6.3",
-    "webpack": "^5.102.0"
+    "webpack": "^5.102.0",
+    "ws": "^8.18.3"
   },
   "name": "learnnode",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "devDependencies": {
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.4",
