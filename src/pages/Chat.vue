@@ -48,11 +48,11 @@ function send() {
         </div>
         <div class="fixed-grid has-2-cells">
             <div class="grid" v-for="msg in messages">
-                
+
                 <!-- Not me -->
                 <div v-if="!msg.isMe" class="notification is-light cell is-link is-col-start-1">
-                    <p>{{ msg.value }}</p>
                     <b>{{ msg.name }}</b>
+                    <p>{{ msg.value }}</p>
                 </div>
                 <div v-if="!msg.isMe" class="cell is-col-start-2">
                 </div>
@@ -61,8 +61,8 @@ function send() {
                 <div v-if="msg.isMe" class="cell is-col-start-1">
                 </div>
                 <div v-if="msg.isMe" class="notification is-light cell is-primary is-col-start-2">
-                    <p>{{ msg.value }}</p>
                     <b>{{ msg.name }}</b>
+                    <p>{{ msg.value }}</p>
                 </div>
             </div>
         </div>
