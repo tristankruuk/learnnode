@@ -1,3 +1,37 @@
+# Terminal <br>
+
+```
+console.log('Hello terminal')
+process.stdout.write('Hello terminal')
+```
+-> process käsklust on tüütu välja kirjutada, kuid see teeb teist asja ning võib olla vajalik <br>
+
+
+
+```
+function write(text) {
+    process.stdout.write(text)
+}
+
+write('Hello terminal')
+```
+-> Saab luua funktsiooni, mis lihtsustab tulevikus välja kirjutamist <br>
+
+
+
+```
+\x1B[30m
+```
+-> Värve on 16 ja neid saab lisada selle koodiga <br>
+-> 30-37 on teksti värvid <br>
+-> 40-47 on teksti highlight'i värvid <br>
+-> 39 % 49 on default värvid
+**Lähemalt commit: Add terminal colors example**
+
+---
+
+
+
 # JSON.stringify & JSON.parse <br>
 
 ```
@@ -6,6 +40,8 @@ socket.send(JSON.stringify ({type: 'letter', value: letter.value}));
 -> socket.send() funktsioon on websocketi sisse ehitatud (saadab serverisse data)  <br>
 -> selle sisse jäib soovitud sõnum, mida ei saa anda JS muutujana (message.value). sel põhjusel tuleb kasutada JSON.stringify <br>
 -> JSON.stringify muudab JS muutjad tekstiks, näiteks kui koodis on let letter = a, siis letter.value on a, mille muudab JSON.stringify tekstiks <br>
+
+
 
 ```
 let data = JSON.parse(event.data);
@@ -20,6 +56,8 @@ let data = JSON.parse(event.data);
 
 ---
 
+
+
 # WebSocket <br>
 
 ```
@@ -30,6 +68,8 @@ const wss = new WebSocketServer({ port: 8080 });
 -> Uus muutumatu, mis loob serveri <br>
 -> Seadistus portile (seal asub web server) <br>
 
+
+
 ```
 wss.on('connection', function connection(ws) {
   ws.on('error', console.error);
@@ -37,6 +77,8 @@ wss.on('connection', function connection(ws) {
   -> wss.on registreerib, kui klient 'connection' ühendab <br>
   -> kui klient on ühendatud, siis jooksutab funktsiooni <br>
   -> kui tuleb error, siis konsoolitakse viga <br>
+
+
 
 ```
   ws.on('message', function message(data) {
@@ -47,11 +89,15 @@ wss.on('connection', function connection(ws) {
   -> funktsioon konsoolib sõnumi info (data) <br>
   -> recieved: %s > sõnum topitakse %s koha peale <br>
 
+
+
 ```
   ws.send('something');
 });
 ```
 -> Saadab sõnumi serverisse <br>
+
+
 
 ```
 && client !== ws
@@ -61,6 +107,8 @@ wss.on('connection', function connection(ws) {
 -> ws ehk minu local websocket klient <br>
 
 ---
+
+
 
 # setInterval & komakohtade eemaldamine <br>
 ```
@@ -73,6 +121,8 @@ function buyCursor(){
 -> Peale intervali kasutamist tuleb kaks osa: funktsioon & intervali pikkus millisekundites <br>
 -> Kuna funktsiooni kasutades luuakse igakord uus interval, siis on mõistlik interval eraldi teha. Näiteks cps kaudu (clicks per second) <br>
 
+
+
 ```
 parseFloat(cookies.toFixed(1))
 ```
@@ -80,6 +130,8 @@ parseFloat(cookies.toFixed(1))
 -> parseFloat võtab komakohad ära, kui need on nulliväärsed <br>
 
 ---
+
+
 
 # Vue <br>
 *Ülesehitus:*
@@ -96,6 +148,8 @@ parseFloat(cookies.toFixed(1))
 -> Selle abil saab luua funktsionaalseid elemente koos atribuutidega, mida saab kasutada läbi projekti. <br>
 
 ---
+
+
 
 # Vue-router <br>
 *Page history:*
@@ -136,6 +190,8 @@ createMemoryHistory
 -> Üldiselt on need samad, kuid a href asemel on RouterLink to <br>
 
 ---
+
+
 
 **JavaScript Node**
 
