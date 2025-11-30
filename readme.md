@@ -6,17 +6,17 @@ import { WebSocketServer } from 'ws';
 const wss = new WebSocketServer({ port: 8080 });
 ```
 
--> Uus muutumatu, mis loob serveri
--> Seadistus portile (seal asub web server)
+-> Uus muutumatu, mis loob serveri <br>
+-> Seadistus portile (seal asub web server) <br>
 
 ```
 wss.on('connection', function connection(ws) {
   ws.on('error', console.error);
 ```
 
-  -> wss.on registreerib, kui klient 'connection' ühendab
-  -> kui klient on ühendatud, siis jooksutab funktsiooni
-  -> kui tuleb error, siis konsoolitakse viga
+  -> wss.on registreerib, kui klient 'connection' ühendab <br>
+  -> kui klient on ühendatud, siis jooksutab funktsiooni <br>
+  -> kui tuleb error, siis konsoolitakse viga <br>
 
 ```
   ws.on('message', function message(data) {
@@ -24,9 +24,9 @@ wss.on('connection', function connection(ws) {
   });
 ```
 
-  -> kui "klient" saadab sõnumi, siis jooksutab funktsiooni
-  -> funktsioon konsoolib sõnumi info (data)
-  -> recieved: %s > sõnum topitakse %s koha peale
+  -> kui "klient" saadab sõnumi, siis jooksutab funktsiooni <br>
+  -> funktsioon konsoolib sõnumi info (data) <br>
+  -> recieved: %s > sõnum topitakse %s koha peale <br>
 
 ```
   ws.send('something');
