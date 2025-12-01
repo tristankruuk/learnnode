@@ -234,6 +234,13 @@ npm install chalk
 -> Terminal Node stiilide package <br>
 -> Lihtsam viis lisada värve & stiile tekstile (underline jms) <br>
 
+### Inquirer
+```
+npm install chalk
+```
+-> Terminal Node stiilide package <br>
+-> Lihtsam viis lisada värve & stiile tekstile (underline jms) <br>
+
 ### Leaflet
 ```
 npm install leaflet
