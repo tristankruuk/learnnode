@@ -1,5 +1,14 @@
+# Terminali ülesanded <br>
+
+### Boxen + Chalk <br>
 ![Boxen + Chalk ülesanne | 6 võimalikult erinevat kasti](src/assets/boxen-chalk.png)
+
+### Inquirer <br>
 ![Inquirer ülesanne | kõik eri tüübiga küsimused](src/assets/inquirer.png)
+
+---
+
+
 
 # Terminal <br>
 
