@@ -2,14 +2,11 @@ function write(text) {
     process.stdout.write(text)
 }
 
-import readLine from 'readline';
+import chalk from "chalk"; // Värvide jaoks kasulik
 
-const rl = readLine.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-});
 
-rl.question('What is your name?', name => {
-    console.log(`Hello ${name}!`);
-    rl.close();
-})
+
+// Töötab ka seadistamata
+write(chalk.green.bgYellow.underline('Mingi tekst'))
+write(chalk.bgAnsi256(67)('Tekst')) // Rohkem värve
+write(chalk.bgRgb(67, 67, 67)('Tekst')) // Rohkem värve

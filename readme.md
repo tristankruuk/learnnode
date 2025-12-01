@@ -193,26 +193,77 @@ createMemoryHistory
 
 
 
-**JavaScript Node**
+# JavaScript <br>
 
-**JavaScript Browser**
+**JavaScript Node** <br>
+**JavaScript Browser** <br>
+**Loops (JavaScript)** <br>
+**If & Switch (JavaScript)** <br>
+**Boolean (JavaScript)** <br>
+**Function (JavaScript)** <br>
+**Object (JavaScript)** <br>
+**Array (JavaScript)** <br>
+**Strings (JavaScript)** <br>
+**Math (JavaScript)** <br>
+**Data Types (JavaScript)** <br>
+**Muutujad (JavaScript)** <br>
 
-**Loops (JavaScript)**
+---
 
-**If & Switch (JavaScript)**
 
-**Boolean (JavaScript)**
 
-**Function (JavaScript)**
+# Used packages <br>
 
-**Object (JavaScript)**
+### Axios
+```
+npm install axios
+```
+-> WebAPI jaoks <br>
 
-**Array (JavaScript)**
+### Bulma
+```
+npm install bulma
+```
+-> CSS raamistik <br>
+-> CSS väärtused HTML klassinimedes <br>
 
-**Strings (JavaScript)**
+### Chalk
+```
+npm install chalk
+```
+-> Terminal Node stiilide package <br>
+-> Lihtsam viis lisada värve & stiile tekstile (underline jms) <br>
 
-**Math (JavaScript)**
+### Leaflet
+```
+npm install leaflet
+```
+-> Interaktiivsete kaartide jaoks JavaScriptis <br>
 
-**Data Types (JavaScript)**
+### Surge
+```
+npm install surge  
+```
+-> Staatiliste lehtede üles laadimiseks <br>
+-> Ligipääs projektile läbi telefoni <br>
 
-**Muutujad (JavaScript)**
+### Vue-Router
+```
+npm install vue-router
+```
+-> Vue.js routing package <br>
+-> Dünaamiliste url jaoks (/home, /page) <br>
+
+### Webpack
+```
+npm install webpack
+```
+-> Frontend bundler <br>
+-> Ühendab koodi optimeeritud väljundiks <br>
+
+### WebSocket
+```
+npm install ws
+```
+-> Serveri ehitamine <br>
+-> Võimaldab luua chat, multiplayer jms otseühenduse <br>
