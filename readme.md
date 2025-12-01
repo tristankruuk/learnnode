@@ -1,3 +1,6 @@
+![Boxen + Chalk ülesanne | 6 võimalikult erinevat kasti](src/assets/boxen-chalk.png)
+![Inquirer ülesanne | kõik eri tüübiga küsimused](src/assets/inquirer.png)
+
 # Terminal <br>
 
 ```
