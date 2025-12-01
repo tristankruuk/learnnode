@@ -10,5 +10,4 @@ import chalk from "chalk"; // Värvide jaoks kasulik
 write(chalk.green.bgYellow.underline('Mingi tekst'))
 write(chalk.bgAnsi256(67)('Tekst')) // Rohkem värve
 write(chalk.bgRgb(67, 67, 67)('Tekst')) // Rohkem värve
-
-
+write('\n')

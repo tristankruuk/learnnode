@@ -236,10 +236,15 @@ npm install chalk
 
 ### Inquirer
 ```
-npm install chalk
+npm install inquirer
 ```
--> Terminal Node stiilide package <br>
--> Lihtsam viis lisada värve & stiile tekstile (underline jms) <br>
+-> Terminali küsimuste parem mudel <br>
+
+### Boxen
+```
+npm install boxen
+```
+-> Loob kaste <br>
 
 ### Leaflet
 ```
